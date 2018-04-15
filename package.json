@@ -5,6 +5,9 @@
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --runInBand",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
@@ -34,7 +37,21 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
+    "@types/jest": "^22.2.3",
+    "jest": "^22.4.3",
+    "jest-preset-angular": "^5.2.1",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "jest": {
+    "preset": "jest-preset-angular",
+    "roots": [
+      "src"
+    ],
+    "testRegex": "\\.spec\\.ts$",
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|@ionic-native|@ionic)"
+    ]
+  }
 }
