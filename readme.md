@@ -83,3 +83,8 @@ Object.defineProperty(window, 'getComputedStyle', {
 ionic cordova plugin add phonegap-plugin-push
 npm install --save @ionic-native/push
 ```
+
+建立 PushProvider
+```bash
+ionic g provider Push
+```
