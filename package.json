@@ -12,7 +12,10 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "prettier": "prettier",
+    "prettier-write": "npm run prettier -- --single-quote --trailing-comma es5 --write --print-width 120 --tab-width 4",
+    "prettier-project": "npm run prettier-write -- src/**/*.ts"
   },
   "dependencies": {
     "@angular/animations": "5.2.9",
@@ -42,6 +45,7 @@
     "@types/jest": "^22.2.3",
     "jest": "^22.4.3",
     "jest-preset-angular": "^5.2.1",
+    "prettier": "^1.12.0",
     "typescript": "~2.6.2"
   },
   "description": "An Ionic project",

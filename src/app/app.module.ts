@@ -11,35 +11,21 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PushProvider } from '../providers/push/push';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { Push } from '@ionic-native/push';
+import { FakePush } from '../providers/push/fake-push';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
-  ],
-  imports: [
-    BrowserModule,
-    HttpClient,
-    HttpClientModule,
-    IonicModule.forRoot(MyApp)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PushProvider
-  ]
+    declarations: [MyApp, AboutPage, ContactPage, HomePage, TabsPage],
+    imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(MyApp)],
+    bootstrap: [IonicApp],
+    entryComponents: [MyApp, AboutPage, ContactPage, HomePage, TabsPage],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        { provide: ErrorHandler, useClass: IonicErrorHandler },
+        { provide: Push, useClass: FakePush },
+        PushProvider,
+    ],
 })
 export class AppModule {}
